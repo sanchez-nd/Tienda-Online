@@ -1,0 +1,399 @@
+/*Variables*/
+:root {
+    --white: #FFFFFF;
+    --black: #000000;
+    --very-light-pink: #C7C7C7;
+    --text-input-field: #F7F7F7;
+    --hospital-green: #ACD9B2;
+    --sm: 14px;
+    --md: 16px;
+    --lg: 18px;
+  }
+
+  /*General*/
+  body {
+    margin: 0;
+    font-family: 'Quicksand', sans-serif;/*Letras (Necesita Link de Google Fonts)*/
+  }
+
+  /*Nav o Header general; menu de navegacion*/
+  nav {
+    display: flex;/*formato para disponer posicion de los elementos*/
+    justify-content: space-between;/*lo usamos para que esten los elementos uno al lado del otro*/
+    padding: 0 24px;/*margen general el primer valor indica arriba y abajo y el segundo derecha y izquierda*/
+    border-bottom: 1px solid var(--very-light-pink);/*el atributo bottom indica que solo va a ser en la parte inferior del diseño; le agregamos una linea para diferenciar*/
+  }
+  .menu {
+    display: none;/*ordena no mostrar la imagen con esta clase; para luego en el respons desing solo desplegar en mobil*/
+    cursor: pointer;
+  }
+  .logo {
+    width: 100px;/*tamaño de logo*/
+  }
+  .navbar-left ul,
+  .navbar-right ul {
+    list-style: none;/*eliminamos el diseño por defecto*/
+    padding: 0;
+    margin: 0;
+    display: flex;/*formato para disponer posicion de los elementos*/
+    align-items: center;/*Lo alinea en formato horizontal en el centro*/
+    height: 60px;/*representa la altura del narv */
+  }
+  .navbar-left {
+    display: flex;/*re asignamos el formato para disponer posicion de los elementos para evitar errores en diseño*/
+  }
+  .navbar-left ul {
+    margin-left: 12px;/*le asiganamos un margen al primer hijo ul de la clase .navbar-left para que se visualice solo en destok*/
+  }
+  .navbar-left ul li a,
+  .navbar-right ul li a {
+    text-decoration: none;/*eliminamos la decoracion por defecto de la etiqueta <a>*/
+    color: var(--very-light-pink);/*agrgamos color de diseño*/
+    border: 1px solid var(--white);/*le asigamanos un reborde para cuando el usuario tenga el mouse sobre la palabra clave; por defecto lo colaremos blanco para luego reestilizar*/
+    padding: 8px;/*espacio entre las letras y el reborde*/
+    border-radius: 8px; /*redondeo de bordes*/
+  }
+  .navbar-left ul li a:hover,
+  .navbar-right ul li a:hover {/*La pseudo-clase :hover nos indica que los estilos dentro de esta se van a activar cuando el usuario se desplaza sobre un elemento con el cursor (puntero del mouse).*/
+    border: 1px solid var(--hospital-green);
+    color: var(--hospital-green);/*asignamos color y ancho del reborde y tipo*/
+  }
+  .navbar-email {/*estilizamos el email con mayor especificidad que si usaramos la clase genereak narvbar right*/
+    color: var(--very-light-pink);
+    cursor: pointer;
+    font-size: var(--sm);
+    margin-right: 12px;/*le asiganamos un margen especifico a la izquierda*/
+  }
+  .navbar-shopping-cart {
+    position: relative;/**/
+    cursor: pointer;
+  }
+  .navbar-shopping-cart div {
+    width: 16px;/*ancho*/
+    height: 16px;/*alto*/
+    background-color: var(--hospital-green);/*color dentro del fondo dento del espacio que le asignamos*/
+    border-radius: 50%;/*redondeo de borde para poder crear un circulo*/
+    font-size: var(--sm);/*tamanño de letra*/
+    font-weight: bold;/*grosor de letra (negrita)*/
+    position: absolute;
+    top: -6px;
+    right: -3px;
+    display: flex; /**/
+    justify-content: center;/*Posicion centrada dentro del espacio que le definomos con en width y el heigth*/
+    align-items: center;/*nos aseguramos que se centre tanto vertical como horizontalmente*/
+  }
+
+/*Menu Desplegable del email*/
+.inactive{
+  /*El inactive es para activar y desactivar con css (displey:none) y JS con el classList (quitar y poner clases)*/
+  display: none;
+}
+.desktop-medium{
+    position: absolute;
+    top: 61px;
+    right: 60px;
+    background: var(--white);
+    width: 100px;
+    height: auto;
+    border: 1px solid var(--very-light-pink);
+    border-radius: 6px;
+    padding: 20px 20px 0 20px;
+}
+.desktop-medium ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.desktop-medium ul li{
+    text-align: end;
+}
+.desktop-medium ul li:nth-child(1), .desktop-medium ul li:nth-child(2){
+    font-weight: bold;
+}
+.desktop-medium ul li:last-child{
+    padding-top: 20px;
+    border-top: 1px solid var(--very-light-pink);
+}
+.desktop-medium ul li:last-child a{
+    color: var(--hospital-green);
+    font-size: var(--sm);
+}
+.desktop-medium ul li a{
+    color: var(--black);
+    text-decoration: none;
+    margin-bottom: 20px;
+    display: inline-block;
+}
+
+/*Menu Desplegable del Mobile*/
+.mobile-menu{
+  position: absolute;
+  width: 100%;
+  background: var(--white);
+  top: 61px;
+  padding: 24px;
+  left: 0;
+}
+.mobile-menu a{
+  text-decoration: none;
+  color: var(--black);
+  font-weight: bold;
+ /* margin-bottom: 24px;
+  display: inline-block;*/
+}
+.mobile-menu ul{
+  padding: 0;
+  margin: 24px 0 0;
+  list-style: none;
+}
+.mobile-menu ul:nth-child(1){
+  border-bottom: 1px solid var(--very-light-pink);
+}
+.mobile-menu ul:nth-child(2){
+  margin-top: 50px;
+}
+.mobile-menu ul:nth-child(3){
+  margin-top: 150px;
+}
+.mobile-menu ul li{
+  margin-bottom: 24px;
+}
+.email{
+  font-size: var(--sm);
+  font-weight: 300 !important;
+  
+}
+.mobile-menu ul .sing-out{
+  font-size: var(--sm);
+  color: var(--hospital-green) !important;
+}
+
+/*Asaid (Mis ordenes y carrito)*/
+.product-detail {
+  background: var(--white);
+  width: 360px;
+  padding: 24px;
+  box-sizing: border-box;/*indica cómo se deben calcular las medidas del elemento*/
+  position: absolute;
+  right: 0;
+}
+.title-container {
+  display: flex;
+}
+.title-container img {
+  transform: rotate(180deg);/*Rotamos 180grados la posicion de la flechita; invertimos*/
+  margin-right: 14px;/*margen izquierdo*/
+}
+.title {
+  font-size: var(--lg);
+  font-weight: bold;
+}
+.order {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 16px;
+  align-items: center;
+  background-color: var(--text-input-field);
+  margin-bottom: 24px;
+  border-radius: 8px;
+  padding: 0 24px;
+}
+.order p:nth-child(1) {
+  display: flex;
+  flex-direction: column;
+}
+.order p span:nth-child(1) {
+  font-size: var(--md);
+  font-weight: bold;
+}
+.order p:nth-child(2) {
+  text-align: end;
+  font-weight: bold;
+}
+.shopping-cart {
+  display: grid;
+  grid-template-columns: auto 1fr auto auto;
+  gap: 16px;
+  margin-bottom: 24px;
+  align-items: center;
+}
+.shopping-cart figure {
+  margin: 0;
+}
+.shopping-cart figure img {
+  width: 70px;
+  height: 70px;
+  border-radius: 20px;
+  object-fit: cover;
+}
+.shopping-cart p:nth-child(2) {
+  color: var(--very-light-pink);
+}
+.shopping-cart p:nth-child(3) {
+  font-size: var(--md);
+  font-weight: bold;
+}
+.primary-button {
+  background-color: var(--hospital-green);
+  border-radius: 8px;
+  border: none;
+  color: var(--white);
+  width: 100%;
+  cursor: pointer;
+  font-size: var(--md);
+  font-weight: bold;
+  height: 50px;
+}
+
+/*Main Cards Product*/
+.cards-container{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 240px);/*divicion de columnas automaticas, cada una con 240px*/
+  gap: 26px;
+  place-content: center;
+  margin-top: 30px;
+}
+.product-card {
+  width: 240px;
+}
+.product-card img{
+  width: 240px;
+  height: 240px;
+  border-radius: 20px;
+  object-fit: cover;
+}
+.product-card .product-info{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 12px;
+}
+.product-card .product-info figure{
+  margin: 0;
+}
+.product-card .product-info figure img{
+  width: 35px;
+  height: 35px;
+}
+.product-card .product-info div p:nth-child(1){
+  font-weight: bold;
+  font-size: var(--md);
+  margin-top: 0;
+  margin-bottom: 4px;
+}
+.product-card .product-info div p:nth-child(2){
+  font-size: var(--sm);
+  margin-top: 0;
+  margin-bottom: 0;
+  color: var(--very-light-pink);
+}
+
+/*Desplegable container-product-detail*/
+.container-product-detail {
+  width: 360px;/*le asignamos por medio de la clase principal el espacio unico que va a ocupar horizontalmente*/
+  padding-bottom: 24px;
+  position: absolute;/*Le asignamos una posicion absolute para que no cambie*/
+  right: 0;/*Pasicion a la izquierda*/
+  background: var(--white);
+}
+.container-product-detail--close {/*estilos de la imagen de cierre*/
+  background: var(--white);/*le asignamos un color de fondo al circulo de la img X de cerrar*/
+  width: 14px;/*area de la img*/
+  height: 14px;/*area de la img */
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  z-index: 2;
+  padding: 12px; /*El area de la img mas el margen (padding) Area del fondo*/
+  border-radius: 50%;/*Redonde del area del fondo*/
+}
+.container-product-detail--close:hover {
+  cursor: pointer;/*Estilo para el cursor; como si se fuese a dar click*/
+}
+.container-product-detail > img:nth-child(2) {/*estilo de la img del producto*/
+  width: 100%;
+  height: 360px;/*Tamaño destinado a la imagen del producto*/
+  object-fit: cover;/*arreglo de imagen(roculta lo sobrante)*/
+  border-radius: 0 0 20px 20px; /*se le asigna valores de acuerdo su posicion(manecillas del reloj) para redondear esquinas*/
+}
+.product-info {
+  margin: 24px 24px 0 24px;
+}
+.product-info p:nth-child(1) {/*estilizamos 1 por 1 cada no de los hijos p de la clase .product-info */
+  font-weight: bold;
+  font-size: var(--md);
+  margin-top: 0;
+  margin-bottom: 4px;
+}
+.product-info p:nth-child(2) {
+  color: var(--very-light-pink);
+  font-size: var(--md);
+  margin-top: 0;
+  margin-bottom: 36px;
+}
+.product-info p:nth-child(3) {
+  color: var(--very-light-pink);
+  font-size: var(--sm);
+  margin-top: 0;
+  margin-bottom: 36px;
+}
+.primary-button { /*utilizamos el estilo del botom de clases anteriores*/
+  background-color: var(--hospital-green);/*Le asiganamos color de fondo*/
+  border-radius: 8px;/*Redondeamos los bordes*/
+  border: none;/*Le quitamos el borde marcado*/
+  color: var(--white);/*Color de letra*/
+  width: 100%;/*Ancho del 100%*/
+  cursor: pointer;/*Estilo del cursor*/
+  font-size: var(--md);/*Tamaño de la letra*/
+  font-weight: bold;/*grosor negrita*/
+  height: 50px;/*Ancho del botom*/
+}
+.add-to-cart-button {
+  display: flex;
+  align-items: center;/*Alinea todos los items dentro de esta clase en el centro, usando el formato display: flex*/
+  justify-content: center;
+}
+@media (max-width: 640px) { /*le aignamos respons para que en mobil ocupe el 100% del ancho de la pantalla*/
+  .container-product-detail {
+    width: 100%;
+  }
+}
+
+@media(max-width: 640px){
+  .cards-container{
+     display: grid;
+     grid-template-columns: repeat(auto-fill, 140px);/*divicion de columnas automaticas, cada una con 140px*/
+     gap: 26px;
+  }
+  .product-card {
+     width: 140px;
+  }
+  .product-card img{
+     width: 140px;
+     height: 140px;
+  }
+}
+
+@media (max-width: 760px) {/*el formato cambiara solo cuando el tamño de la pantalla sea menor a 640px (renponsive desing)*/
+  .menu {
+    display: block;/*nuestra imagen de menu solo se activara cuando el espacio en pantalla se menos a 640px; cambiamos de displey: none a block*/
+  }
+  .navbar-left ul {
+   display: none;/*quitamos especificamente el .navbar-left ul en espacio en pantalla se menos a 640px*/
+  }
+  .navbar-email {
+    display: none;/*quitamos especificamente el .navbar-email (email) en espacio en pantalla se menor a 640px*/
+  }
+  .desktop-medium{
+    display: none;
+  }
+  .product-detail {
+    width: 100%;
+  }
+}
+
+@media (min-width: 760px) {
+  .mobile-menu{
+    display: none;
+  }
+}
